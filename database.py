@@ -40,7 +40,7 @@ class Database:
             print(f"Database Error: {e}")
             return None
 
-
+# RemoveTask returns true if the task was successfully removed from the database, false otherwise.  It also returns false if an exception is thrown.
     def RemoveTask(self, task_ID):
         conn = sqlite3.connect(self.__db_path)
         cursor = conn.cursor()
