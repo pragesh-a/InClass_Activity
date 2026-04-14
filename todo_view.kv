@@ -1,0 +1,44 @@
+#:kivy 1.0
+
+<SimpleToDoView>:
+    layoutTasks: layoutTasks
+    orientation: 'vertical'
+    Label:
+        text: "My Tasks"
+        size_hint: (1, None)
+        height: '60dp'
+
+    ScrollView:
+        do_scroll_y: True
+        BoxLayout:
+            id: layoutTasks
+            orientation: 'vertical'
+            size_hint: (1, None)
+            height: self.minimum_height
+            spacing: 5
+
+
+    TextInput:
+        hint_text: "Task Title"
+        size_hint: (1, None)
+        height: '60dp'
+        on_text: root.new_task_title = self.text
+
+    TextInput:
+        hint_text: "Task Description"
+        size_hint: (1, None)
+        height: '60dp'
+        on_text: root.new_task_desc = self.text
+
+    Button:
+        text: "Add Task"
+        size_hint: (1, None)
+        height: '60dp'
+        on_release: root.on_click_add_task()
+
+    # Hint: Add two new widgets: an ID field for entering the ID of the item to remove
+    #       and a button to click to initiate the remove operation by the user.
+
+
+
+    
