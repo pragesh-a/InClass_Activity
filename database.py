@@ -98,7 +98,7 @@ class Database:
         conn.close()
 
             
-    # Run this script to create and reset the database
+    # this script to creates and resets the database
     def PopulateDB(self):
         self.ResetDatabase()
         self.AddTask("Mow the Lawn", "Need to mow the lawn.  The grass is getting out of hand...")
