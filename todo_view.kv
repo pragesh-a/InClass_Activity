@@ -36,9 +36,19 @@
         height: '60dp'
         on_release: root.on_click_add_task()
 
-    # Hint: Add two new widgets: an ID field for entering the ID of the item to remove
-    #       and a button to click to initiate the remove operation by the user.
+# Added the text input and the button as intended
 
+    TextInput:
+        hint_text: "Task ID to Remove"
+        size_hint: (1, None)
+        height: '60dp'
+        on_text: root.remove_task_id = self.text
+
+    Button:
+        text: "Remove Task"
+        size_hint: (1, None)
+        height: '60dp'
+        on_release: root.on_click_remove_task()
 
 
     

@@ -8,6 +8,7 @@ class SimpleToDoView(BoxLayout):
     layoutTasks = ObjectProperty()
     new_task_title = StringProperty("")
     new_task_desc = StringProperty("")
+    remove_task_id = StringProperty("")
     # Hint: Add a new property to connect to the front end for the ID
     #       used in the removal command.
 
@@ -33,9 +34,12 @@ class SimpleToDoView(BoxLayout):
         self.__model.AddTask(self.new_task_title, self.new_task_desc)
         self.load_records()
 
-    
-    # Add a method to be called when the user initiates a delete command.
-        
+    #when clickef the remove button, we want to call the RemoveTask method in the model and then reload the records to update the view.  We also need to convert the remove_task_id to an int before passing it to the model.
+    def on_click_remove_task(self):
+        if self.remove_task_id:
+            self.__model.RemoveTask(int(self.remove_task_id))
+            self.load_records()
+            
     
 Builder.load_file("todo_view.kv")
 
